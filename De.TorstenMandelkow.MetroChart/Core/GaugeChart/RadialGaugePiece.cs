@@ -153,7 +153,7 @@
             {
             }
 
-            if (AnimatedValue != Value)
+            if (Math.Abs(AnimatedValue - Value) > 0.001)
             {
                 //recalc the animatedvalue
                 double t = animationCounter;
