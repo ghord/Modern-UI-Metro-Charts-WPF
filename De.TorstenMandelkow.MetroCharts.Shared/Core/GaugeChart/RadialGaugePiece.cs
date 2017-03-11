@@ -84,9 +84,27 @@
         public static readonly DependencyProperty MouseOverGeometryProperty =
             DependencyProperty.Register("MouseOverGeometry", typeof(Geometry), typeof(RadialGaugePiece),
             new PropertyMetadata(null));
- 
+
+        public static readonly DependencyProperty PercentageFontSizeProperty =
+            DependencyProperty.Register("PercentageFontSize", typeof(double), typeof(RadialGaugePiece), new PropertyMetadata(0.0));
+
+        public static readonly DependencyProperty PercentageSmallFontSizeProperty =
+            DependencyProperty.Register("PercentageSmallFontSize", typeof(double), typeof(RadialGaugePiece), new PropertyMetadata(0.0));
+
+        public double PercentageFontSize
+        {
+            get { return (double)GetValue(PercentageFontSizeProperty); }
+            set { SetValue(PercentageFontSizeProperty, value); }
+        }
+
+        public double PercentageSmallFontSize
+        {
+            get { return (double)GetValue(PercentageSmallFontSizeProperty); }
+            set { SetValue(PercentageSmallFontSizeProperty, value); }
+        }
+
         #endregion Fields
-        
+
         #region Constructors
 
         static RadialGaugePiece()        

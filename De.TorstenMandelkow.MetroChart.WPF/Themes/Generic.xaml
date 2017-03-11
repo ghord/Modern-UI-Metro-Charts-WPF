@@ -818,11 +818,10 @@
                                                         Value="{Binding Path=Value}"
                                                         IsClickedByUser="{Binding Path=IsClickedByUser, Mode=TwoWay}"
                                                         IsSelected="{Binding Path=IsSelected}"
-                                                        ClientWidth="{Binding RadialPieceWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=local:RadialGaugeChart}}"
-                                                        ClientHeight="{Binding RadialPieceHeight, RelativeSource={RelativeSource FindAncestor, AncestorType=local:RadialGaugeChart}}" 
+                                                        Style="{Binding RadialPieceStyle, RelativeSource={RelativeSource FindAncestor, AncestorType=local:RadialGaugeChart}}"
                                                         x:Name="radial">
                                                      </local:RadialGaugePiece>
-                                                    <Border Grid.Row="1" HorizontalAlignment="Center" Margin="0 0 0 10">
+                                                    <Border Grid.Row="1" HorizontalAlignment="Center" Margin="0 0 0 0">
                                                         <TextBlock Text="{Binding Path=SeriesCaption}" />
                                                     </Border>
                                                 </Grid>
@@ -838,8 +837,6 @@
         </Setter>
     </Style>
     <Style TargetType="local:RadialGaugeChart" BasedOn="{StaticResource BaseChartStyle}">
-        <Setter Property="RadialPieceHeight" Value="180" />
-        <Setter Property="RadialPieceWidth" Value="180" />
         <Setter Property="ChartAreaStyle" Value="{StaticResource RadialGaugeChartChartAreaStyle}" />
         <Setter Property="PlotterAreaStyle" Value="{StaticResource RadialGaugeChartPlotterAreaStyle}" />
     </Style>
@@ -1122,6 +1119,10 @@
         <Setter Property="BorderBrush" Value="White" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="IsTabStop" Value="False" />
+        <Setter Property="ClientHeight" Value="180" />
+        <Setter Property="ClientWidth" Value="180" />
+        <Setter Property="PercentageFontSize" Value="32" />
+        <Setter Property="PercentageSmallFontSize" Value="18" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:RadialGaugePiece">
@@ -1181,8 +1182,10 @@
                             <Path x:Name="MouseOverHighlight" Data="{TemplateBinding MouseOverGeometry}" Fill="White" StrokeMiterLimit="1" IsHitTestVisible="False" Opacity="0" />
                         </Canvas>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
-                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="{Binding Path=FormattedAnimatedValue, RelativeSource={RelativeSource Mode=TemplatedParent}}" Foreground="{TemplateBinding Background}" FontWeight="Bold" FontSize="32" LineHeight="32" />
-                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="%" FontWeight="Bold" LineHeight="32" FontSize="18" Foreground="{TemplateBinding Background}" />
+                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="{Binding Path=FormattedAnimatedValue, RelativeSource={RelativeSource Mode=TemplatedParent}}" 
+                                       Foreground="{TemplateBinding Background}" FontWeight="Bold" FontSize="{TemplateBinding PercentageFontSize}" LineHeight="{TemplateBinding PercentageFontSize}" />
+                            <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="%" FontWeight="Bold" 
+                                       LineHeight="{TemplateBinding PercentageFontSize}" FontSize="{TemplateBinding PercentageSmallFontSize}" Foreground="{TemplateBinding Background}" />
                         </StackPanel>
                     </Grid>                    
                 </ControlTemplate>

@@ -26,30 +26,15 @@
    
     public class RadialGaugeChart : ChartBase
     {
-        public static readonly DependencyProperty RadialPieceWidthProperty =
-            DependencyProperty.Register("RadialPieceWidth", typeof(double), typeof(RadialGaugeChart), new PropertyMetadata(0.0));
-        public static readonly DependencyProperty RadialPieceHeightProperty =
-            DependencyProperty.Register("RadialPieceHeight", typeof(double), typeof(RadialGaugeChart), new PropertyMetadata(0.0));
+        public static readonly DependencyProperty RadialPieceStyleProperty =
+            DependencyProperty.Register("RadialPieceStyle", typeof(Style), typeof(RadialGaugePiece), new PropertyMetadata(null));
 
 
-
-        public double RadialPieceWidth
+        public Style RadialPieceStyle
         {
-            get { return (double)GetValue(RadialPieceWidthProperty); }
-            set { SetValue(RadialPieceWidthProperty, value); }
+            get { return (Style)GetValue(RadialPieceStyleProperty); }
+            set { SetValue(RadialPieceStyleProperty, value); }
         }
-
-
-
-
-        public double RadialPieceHeight
-        {
-            get { return (double)GetValue(RadialPieceHeightProperty); }
-            set { SetValue(RadialPieceHeightProperty, value); }
-        }
-
-
-
 
 
         #region Constructors
