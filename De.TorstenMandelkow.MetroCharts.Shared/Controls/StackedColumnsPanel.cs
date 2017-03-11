@@ -38,7 +38,7 @@
         protected override Size ArrangeOverride(Size finalSize)
         {
             Size cellSize = new Size(finalSize.Width / Children.Count, finalSize.Height);
-            int row = 0, col = 0;
+            int col = 0;
 
             double bottomposition = finalSize.Height;
             foreach (UIElement child in Children)

@@ -80,7 +80,7 @@
 #endif
         Border mainBorder = null;
         TextBlock mainTextBlock = null;
-        double initialheight = 0.0;
+ 
         private void InternalOnApplyTemplate()
         {
             mainBorder = this.GetTemplateChild("PART_Border") as Border; 
@@ -130,22 +130,7 @@
                        
             return returnedSize;
            
-            /*
-            mainTextBlock.Visibility = Visibility.Collapsed;
-            if (availableSize.Height < initialheight)
-            {
-                //if the is not enough height for the text, 
-                //return new Size(0, availableSize.Height);
-            }
-            else
-            {
-                //return new Size(0, initialheight);
-            }
-
-            return new Size(0, 0);
-           // Size baseSize = base.MeasureOverride(availableSize);
-           // return baseSize;
-             * */
+          
         }
 
         private TextBlock GetCopyOfMainTextBlock()

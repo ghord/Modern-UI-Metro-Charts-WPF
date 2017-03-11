@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>3121d315-0ed9-4821-8130-055b57bd84cf</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>De.TorstenMandelkow.MetroCharts.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ChartControls\ChartArea.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChartControls\ChartLegendItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChartControls\ChartSeries.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChartControls\ChartTitle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChartControls\Legend.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChartControls\PiePieceLabel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChartControls\PlotterArea.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ChartControls\ResourceDictionaryCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\AutoSizeTextBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ColumnSeriesPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\CustomWrapPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\EvenlyDistributedColumnsGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\EvenlyDistributedRowGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\FadingListView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\MinimalWidthTextBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\RowSeriesPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\StackedColumnsPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\UniformGridPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\DoubleToGridLengthPercent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\BarChart\BarPiece.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\BarChart\ClusteredBarChart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\BarChart\StackedBar100Chart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\BarChart\StackedBarChart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ChartBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ChartSeriesViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ColumnChart\ClusteredColumnChart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ColumnChart\ColumnPiece.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ColumnChart\StackedColumn100Chart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ColumnChart\StackedColumnChart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\DataPoint.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\DataPointGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Doughnut\DoughnutChart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\GaugeChart\RadialGaugeChart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\GaugeChart\RadialGaugePiece.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\PieceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\PieChart\PieChart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\PieChart\PiePiece.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Themes\" />
+  </ItemGroup>
+</Project>

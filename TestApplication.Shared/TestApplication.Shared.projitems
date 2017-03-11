@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>ddeead76-1200-412e-962c-bb5163fa7747</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>TestApplication.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\BooleanToVisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PortableHyperlinkButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PortablePopup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\StringToBrushConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\StringToDataTemplateConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\TestClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\TestPageViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Shared\Fonts\seguisym.ttf" />
+    <None Include="$(MSBuildThisFileDirectory)Themes\Generic.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)Shared\Images\torsten.png" />
+  </ItemGroup>
+</Project>

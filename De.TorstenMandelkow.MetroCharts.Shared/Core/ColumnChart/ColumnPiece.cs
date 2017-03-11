@@ -146,7 +146,7 @@
                 storyScaleX.Begin();
    
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }

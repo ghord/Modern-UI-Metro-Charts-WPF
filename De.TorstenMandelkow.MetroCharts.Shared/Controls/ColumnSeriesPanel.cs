@@ -23,7 +23,6 @@
 
     public class ColumnSeriesPanel : Panel
     {
-        private bool arrangeItems = false;
         private int numberOfRows = 0;
         private double maxElementHeightInRow1 = 0.0;
         private double maxElementHeightInRow2 = 0.0;

@@ -341,7 +341,7 @@
                 }
                 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -434,7 +434,7 @@
 
                 return segmentPath.Data;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
             return null;

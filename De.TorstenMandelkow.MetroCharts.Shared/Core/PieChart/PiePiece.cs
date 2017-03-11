@@ -278,7 +278,7 @@
                     LayoutSegment(startAngle, endAngle, radius, this.DoughnutInnerRadiusRatio, center, this.IsDoughnut);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }
@@ -443,7 +443,7 @@
                     label.SetValue(Canvas.LeftProperty, pointerMoreOuter.X - (label.ActualWidth));
                 }                
             }
-            catch (Exception ex)
+            catch (Exception)
             {
             }
         }

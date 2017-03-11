@@ -76,27 +76,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="..\TestApplication.Shared\Controls\BooleanToVisibilityConverter.cs">
-      <Link>Controls\BooleanToVisibilityConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\TestApplication.Shared\Controls\PortableHyperlinkButton.cs">
-      <Link>Controls\PortableHyperlinkButton.cs</Link>
-    </Compile>
-    <Compile Include="..\TestApplication.Shared\Controls\PortablePopup.cs">
-      <Link>Controls\PortablePopup.cs</Link>
-    </Compile>
-    <Compile Include="..\TestApplication.Shared\Controls\StringToBrushConverter.cs">
-      <Link>Controls\StringToBrushConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\TestApplication.Shared\Controls\StringToDataTemplateConverter.cs">
-      <Link>Controls\StringToDataTemplateConverter.cs</Link>
-    </Compile>
-    <Compile Include="..\TestApplication.Shared\ViewModel\TestClass.cs">
-      <Link>ViewModel\TestClass.cs</Link>
-    </Compile>
-    <Compile Include="..\TestApplication.Shared\ViewModel\TestPageViewModel.cs">
-      <Link>ViewModel\TestPageViewModel.cs</Link>
-    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -132,9 +111,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Resource Include="..\TestApplication.Shared\Shared\Fonts\seguisym.ttf">
-      <Link>Shared\Fonts\seguisym.ttf</Link>
-    </Resource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -167,11 +143,8 @@
       <Name>De.TorstenMandelkow.MetroChart</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="..\TestApplication.Shared\Shared\Images\torsten.png">
-      <Link>Shared\Images\torsten.png</Link>
-    </Resource>
-  </ItemGroup>
+  <ItemGroup />
+  <Import Project="..\TestApplication.Shared\TestApplication.Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

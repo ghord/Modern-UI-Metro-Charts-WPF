@@ -769,6 +769,13 @@
         </Setter>
     </Style>
     <Style x:Key="RadialGaugeChartPlotterAreaStyle" TargetType="local:PlotterArea">
+        <Setter Property="DataPointItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <local:UniformGridPanel Orientation="Horizontal" MinimalGridWidth="150.0" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:PlotterArea">
@@ -789,16 +796,13 @@
                                         <TextBlock Text="{Binding Path=Caption}" Style="{StaticResource SeriesTitleStyle}" />
                                     </Border>
                                     <local:FadingListView Style="{StaticResource FadingListViewStyle}"
+                                                          ItemsPanel="{Binding DataPointItemsPanel, RelativeSource={RelativeSource FindAncestor, AncestorType=local:PlotterArea}}"
                                                 x:Name="itemsControl" 
                                                 ItemsSource="{Binding Path=DataPoints}"
+                                                        
                                                 Margin="5"
                                                 Grid.Row="1">
-                                        <local:FadingListView.ItemsPanel>
-                                            <ItemsPanelTemplate>
-                                                <!--<StackPanel Orientation="Horizontal" />-->
-                                                <local:UniformGridPanel Orientation="Horizontal" MinimalGridWidth="150.0" />
-                                            </ItemsPanelTemplate>
-                                        </local:FadingListView.ItemsPanel>
+                                        
                                         <local:FadingListView.ItemTemplate>
                                             <DataTemplate>   
                                                 <Grid>
