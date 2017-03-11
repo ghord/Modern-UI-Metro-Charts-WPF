@@ -28,6 +28,11 @@
     using System.Windows.Data;
 #endif
 
+    public class ChartSeriesCollection : ObservableCollection<ChartSeries>
+    {
+
+    }
+
     public abstract class ChartBase : Control, INotifyPropertyChanged
     {
         #region Fields
@@ -89,7 +94,7 @@
 
         public static readonly DependencyProperty SeriesProperty =
             DependencyProperty.Register("Series",
-            typeof(ObservableCollection<ChartSeries>), typeof(ChartBase), new PropertyMetadata(null, new PropertyChangedCallback(OnSeriesChanged)));
+            typeof(ChartSeriesCollection), typeof(ChartBase), new PropertyMetadata(null, new PropertyChangedCallback(OnSeriesChanged)));
         
         public static readonly DependencyProperty InternalDataContextProperty =
             DependencyProperty.Register("InternalDataContext",
@@ -232,7 +237,7 @@
 
         public ChartBase()
         {
-            Series = new ObservableCollection<ChartSeries>();
+            Series = new ChartSeriesCollection();
             SetBinding(DataContextWatcherProperty, new Binding());
 
             UpdateGridLines();
@@ -296,9 +301,9 @@
             set { SetValue(MaxDataPointGroupSumProperty, value); }
         }
 
-        public ObservableCollection<ChartSeries> Series
+        public ChartSeriesCollection Series
         {
-            get { return (ObservableCollection<ChartSeries>)GetValue(SeriesProperty); }
+            get { return (ChartSeriesCollection)GetValue(SeriesProperty); }
             set { SetValue(SeriesProperty, value); }
         }
 
