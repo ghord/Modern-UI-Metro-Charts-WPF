@@ -302,6 +302,8 @@
         {
             slice = this.GetTemplateChild("Slice") as Path;
             RegisterMouseEvents(slice);
+
+            UpdateFormattedValue();
         }
 
         protected override void DrawGeometry(bool withAnimation = true)
