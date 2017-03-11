@@ -818,8 +818,8 @@
                                                         Value="{Binding Path=Value}"
                                                         IsClickedByUser="{Binding Path=IsClickedByUser, Mode=TwoWay}"
                                                         IsSelected="{Binding Path=IsSelected}"
-                                                        ClientWidth="180"
-                                                        ClientHeight="180" 
+                                                        ClientWidth="{Binding RadialPieceWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=local:RadialGaugeChart}}"
+                                                        ClientHeight="{Binding RadialPieceHeight, RelativeSource={RelativeSource FindAncestor, AncestorType=local:RadialGaugeChart}}" 
                                                         x:Name="radial">
                                                      </local:RadialGaugePiece>
                                                     <Border Grid.Row="1" HorizontalAlignment="Center" Margin="0 0 0 10">
@@ -838,6 +838,8 @@
         </Setter>
     </Style>
     <Style TargetType="local:RadialGaugeChart" BasedOn="{StaticResource BaseChartStyle}">
+        <Setter Property="RadialPieceHeight" Value="180" />
+        <Setter Property="RadialPieceWidth" Value="180" />
         <Setter Property="ChartAreaStyle" Value="{StaticResource RadialGaugeChartChartAreaStyle}" />
         <Setter Property="PlotterAreaStyle" Value="{StaticResource RadialGaugeChartPlotterAreaStyle}" />
     </Style>
