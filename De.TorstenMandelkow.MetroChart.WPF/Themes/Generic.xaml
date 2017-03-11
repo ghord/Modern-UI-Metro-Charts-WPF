@@ -5,7 +5,7 @@
 
     <local:DoubleToGridLengthPercent x:Key="doubleToGridLengthPercent"/>
     <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-    
+
     <local:ResourceDictionaryCollection x:Key="DefaultPalette">
         <ResourceDictionary>
             <SolidColorBrush x:Key="Brush1" Color="#FF007C9C" />
@@ -21,7 +21,7 @@
         </ResourceDictionary>
         <ResourceDictionary>
             <SolidColorBrush x:Key="Brush5" Color="#FF638A2D" />
-        </ResourceDictionary>      
+        </ResourceDictionary>
         <ResourceDictionary>
             <SolidColorBrush x:Key="Brush6" Color="#FFE3AAD6" />
         </ResourceDictionary>
@@ -71,7 +71,7 @@
         <Setter Property="FontWeight" Value="Light"/>
         <Setter Property="Opacity" Value="0.75"/>
     </Style>
-    
+
     <Style x:Key="SeriesTextStyle" TargetType="TextBlock">
         <Setter Property="TextAlignment" Value="Center" />
     </Style>
@@ -86,7 +86,7 @@
         <Setter Property="Opacity" Value="0.5" />
         <Setter Property="Margin" Value="3 1 3 1" />
     </Style>
-    
+
     <Style TargetType="local:ChartTitle">
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Top" />
@@ -103,7 +103,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="local:MinimalWidthTextBlock">        
+    <Style TargetType="local:MinimalWidthTextBlock">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:MinimalWidthTextBlock">
@@ -126,7 +126,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>    
+    </Style>
 
     <Style TargetType="local:ChartLegendItem">
         <Setter Property="HorizontalContentAlignment" Value="Left" />
@@ -222,7 +222,8 @@
                         </Grid.RowDefinitions>
                         <!--<TextBlock Grid.Row="0" Visibility="{Binding Path=IsHeightExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}" Text="{Binding Path=Value}" Style="{StaticResource NumberStyle}" VerticalAlignment="Bottom" Foreground="Black" HorizontalAlignment="Stretch"  />-->
                         <local:AutoSizeTextBlock Grid.Row="0" Visibility="{Binding Path=IsHeightExceedsSpace, ElementName=MainTextBlock, Converter={StaticResource BooleanToVisibilityConverter}}"  Text="{Binding Path=Value}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Top" HorizontalAlignment="Stretch" />
-                        <Border Grid.Row="1" x:Name="Slice" Width="auto" Height="auto" MinWidth="2" ToolTipService.ToolTip="{Binding Path=FormattedValue}" >
+                        <Border Grid.Row="1" x:Name="Slice" Width="auto" Height="auto" MinWidth="2" ToolTipService.ToolTip="{Binding Path=FormattedValue}">
+
                             <Grid>
                                 <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                 <Border x:Name="SelectionHighlight" Background="{Binding Path=SelectedBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
@@ -271,7 +272,7 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Border Grid.Row="1" x:Name="Slice" Width="auto" Height="auto" MinWidth="2" ToolTipService.ToolTip="{Binding Path=FormattedValue}" >
+                        <Border Grid.Row="1" x:Name="Slice" Width="auto" Height="auto" MinWidth="2" ToolTipService.ToolTip="{Binding Path=FormattedValue}">
                             <Grid>
                                 <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                 <Border x:Name="SelectionHighlight" Background="{Binding Path=SelectedBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
@@ -293,13 +294,13 @@
         <Setter Property="Background" Value="{StaticResource ChartBackground}" />
         <Setter Property="Foreground" Value="{StaticResource ChartForeground}" />
         <Setter Property="BorderBrush" Value="Transparent" />
-        <Setter Property="FontFamily" Value="Segoe UI"/>       
+        <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="DefaultPalette" Value="{StaticResource DefaultPalette}" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="20" />
         <Setter Property="FontSize" Value="10" />
-        <Setter Property="ChartLegendItemStyle" Value="{StaticResource ChartLegendItemStyle}" />        
+        <Setter Property="ChartLegendItemStyle" Value="{StaticResource ChartLegendItemStyle}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="local:ChartBase">
@@ -338,7 +339,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style TargetType="local:Legend">
         <Setter Property="Template">
             <Setter.Value>
@@ -354,14 +355,14 @@
                                 <DataTemplate>
                                     <local:ChartLegendItem Style="{Binding Path=ChartLegendItemStyle, RelativeSource={RelativeSource Mode=TemplatedParent}}" Caption="{Binding Path=Caption}" ItemBrush="{Binding Path=ItemBrush}" />
                                 </DataTemplate>
-                            </local:FadingListView.ItemTemplate> 
+                            </local:FadingListView.ItemTemplate>
                         </local:FadingListView>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-  
+
     <Style x:Key="BarSeriesTextStyle" TargetType="TextBlock" BasedOn="{StaticResource SeriesTextStyle}">
         <Setter Property="TextAlignment" Value="Right" />
     </Style>
@@ -425,7 +426,7 @@
                                         <local:AutoSizeTextBlock TextBlockStyle="{StaticResource SeriesTextStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding Path=Caption}" />
                                     </DataTemplate>
                                 </local:FadingListView.ItemTemplate>
-                            </local:FadingListView>      
+                            </local:FadingListView>
                         </Grid>
                         <Grid x:Name="LeftLines" Grid.Column="0" Grid.Row="0">
                             <local:FadingListView HorizontalAlignment="Stretch"  Style="{StaticResource FadingListViewStyle}" ItemsSource="{Binding Path=GridLines, RelativeSource={RelativeSource Mode=TemplatedParent}}">
@@ -467,13 +468,13 @@
                             <ItemsPanelTemplate>
                                 <local:EvenlyDistributedColumnsGrid Margin="0 10 0 0" />
                             </ItemsPanelTemplate>
-                        </local:FadingListView.ItemsPanel>                        
+                        </local:FadingListView.ItemsPanel>
                     </local:FadingListView>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-        
+
     <Style x:Key="ClusteredColumnChartPlotterAreaStyle" TargetType="local:PlotterArea" BasedOn="{StaticResource ColumnChartPlotterAreaStyle}">
         <Setter Property="DataPointItemTemplate">
             <Setter.Value>
@@ -498,9 +499,9 @@
                             </DataTemplate>
                         </local:FadingListView.ItemTemplate>
                     </local:FadingListView>
-                </DataTemplate>                
+                </DataTemplate>
             </Setter.Value>
-        </Setter>        
+        </Setter>
     </Style>
     <Style x:Key="StackedColumnChartPlotterAreaStyle" TargetType="local:PlotterArea" BasedOn="{StaticResource ColumnChartPlotterAreaStyle}">
         <Setter Property="DataPointItemTemplate">
@@ -612,8 +613,9 @@
                             <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Border Grid.Column="0" x:Name="Slice" Width="auto" Height="auto" MinHeight="2" ToolTipService.ToolTip="{Binding Path=FormattedValue}" >
-                            <Grid>                               
+                        <Border Grid.Column="0" x:Name="Slice" Width="auto" Height="auto" MinHeight="2"  ToolTipService.ToolTip="{Binding Path=FormattedValue}">
+
+                            <Grid>
                                 <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                 <Border x:Name="SelectionHighlight" Background="{Binding Path=SelectedBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
                                 <local:AutoSizeTextBlock x:Name="MainTextBlock" Text="{Binding Path=Value}" TextBlockStyle="{StaticResource NumberStyle}" VerticalAlignment="Stretch" Foreground="White" HorizontalAlignment="Right" />
@@ -661,13 +663,14 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Border x:Name="Slice" Width="auto" Height="auto" ToolTipService.ToolTip="{Binding Path=FormattedValue}" >
+                        <Border x:Name="Slice" Width="auto" Height="auto"  ToolTipService.ToolTip="{Binding Path=FormattedValue}">
+
                             <Grid>
                                 <Border Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
                                 <Border x:Name="SelectionHighlight" Background="{Binding Path=SelectedBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0"/>
                                 <TextBlock Foreground="White" Style="{StaticResource NumberStyle}" Text="{Binding Path=Value}" VerticalAlignment="Center" HorizontalAlignment="Center" />
                             </Grid>
-                        </Border>                        
+                        </Border>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -702,7 +705,7 @@
                             <ItemsPanelTemplate>
                                 <local:UniformGridPanel Orientation="Horizontal" MinimalGridWidth="{Binding Path=PieMinimalSize}" DataContext="{Binding Path=DataContext, ElementName=list}" />
                             </ItemsPanelTemplate>
-                        </local:FadingListView.ItemsPanel>   
+                        </local:FadingListView.ItemsPanel>
                         <local:FadingListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid >
@@ -803,14 +806,14 @@
                                                         
                                                 Margin="5"
                                                 Grid.Row="1">
-                                        
+
                                         <local:FadingListView.ItemTemplate>
-                                            <DataTemplate>   
+                                            <DataTemplate>
                                                 <Grid>
                                                     <Grid.RowDefinitions>
                                                         <RowDefinition Height="*" />
-                                                        <RowDefinition Height="auto" />                                                        
-                                                    </Grid.RowDefinitions>                                                    
+                                                        <RowDefinition Height="auto" />
+                                                    </Grid.RowDefinitions>
                                                     <local:RadialGaugePiece
                                                         Grid.Row="0"
                                                         Margin="5"
@@ -821,7 +824,7 @@
                                                         IsSelected="{Binding Path=IsSelected}"
                                                         Style="{Binding ParentChart.RadialPieceStyle}"
                                                         x:Name="radial">
-                                                     </local:RadialGaugePiece>
+                                                    </local:RadialGaugePiece>
                                                     <Border Grid.Row="1" HorizontalAlignment="Center" Margin="0 0 0 0">
                                                         <TextBlock Text="{Binding Path=SeriesCaption}" />
                                                     </Border>
@@ -943,7 +946,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="ClusteredBarChartPlotterAreaStyle" TargetType="local:PlotterArea" BasedOn="{StaticResource BarChartPlotterAreaStyle}">
         <Setter Property="DataPointItemTemplate">
             <Setter.Value>
@@ -1100,7 +1103,9 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Path x:Name="Slice" Data="{TemplateBinding Geometry}" ToolTipService.ToolTip="{Binding Path=FormattedValue}" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeMiterLimit="1" />
+                        <Path x:Name="Slice" Data="{TemplateBinding Geometry}" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" 
+                               ToolTipService.ToolTip="{Binding Path=FormattedValue}"
+                              StrokeMiterLimit="1"/>
                         <Path x:Name="SelectionHighlight" Data="{TemplateBinding SelectionGeometry}" Fill="{Binding Path=SelectedBrush}" StrokeMiterLimit="2" IsHitTestVisible="False" Opacity="0" />
                         <Path x:Name="MouseOverHighlight" Data="{TemplateBinding MouseOverGeometry}" Fill="White" StrokeMiterLimit="1" IsHitTestVisible="False" Opacity="0" />
                         <Path x:Name="LabelLine" Data="{TemplateBinding LineGeometry}" StrokeThickness="1" StrokeMiterLimit="1" Stroke="{TemplateBinding Foreground}"  IsHitTestVisible="False" />
@@ -1108,7 +1113,7 @@
                         <!--<TextBlock x:Name="PART_Label" Style="{StaticResource NumberStyle}" Margin="2" Text="{Binding Path=Value}" />-->
                         <Border x:Name="PART_Label">
                             <TextBlock Style="{StaticResource NumberStyle}" Margin="2" Text="{TemplateBinding FormattedValue}" />
-                        </Border>                        
+                        </Border>
                     </Canvas>
                 </ControlTemplate>
             </Setter.Value>
@@ -1178,7 +1183,10 @@
                         </VisualStateManager.VisualStateGroups>
                         <Canvas x:Name="Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <Path x:Name="BackgroundCircleHighlight" Data="{TemplateBinding BackgroundGeometry}" Fill="{TemplateBinding Foreground}" Opacity="0.2"  StrokeMiterLimit="1" IsHitTestVisible="False" />
-                            <Path x:Name="Slice" Data="{TemplateBinding Geometry}" ToolTipService.ToolTip="{Binding Path=FormattedValue}" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" StrokeMiterLimit="1" />
+                            <Path x:Name="Slice" Data="{TemplateBinding Geometry}" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding BorderBrush}" 
+                                   ToolTipService.ToolTip="{Binding Path=FormattedValue}" StrokeMiterLimit="1" />
+
+
                             <Path x:Name="SelectionHighlight" Data="{TemplateBinding SelectionGeometry}" Fill="{Binding Path=SelectedBrush}" StrokeMiterLimit="2" IsHitTestVisible="False" Opacity="0" />
                             <Path x:Name="MouseOverHighlight" Data="{TemplateBinding MouseOverGeometry}" Fill="White" StrokeMiterLimit="1" IsHitTestVisible="False" Opacity="0" />
                         </Canvas>
@@ -1188,32 +1196,11 @@
                             <TextBlock LineStackingStrategy="BlockLineHeight" VerticalAlignment="Bottom" FontFamily="Segoe UI" Text="%" FontWeight="Bold" 
                                        LineHeight="{TemplateBinding PercentageFontSize}" FontSize="{TemplateBinding PercentageSmallFontSize}" Foreground="{TemplateBinding Background}" />
                         </StackPanel>
-                    </Grid>                    
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style TargetType="ToolTip">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ToolTip">
-                    <Border Name="Border"
-                        CornerRadius="4"
-                        Background="White"
-                        BorderBrush="Black"
-                        BorderThickness="1"
-                        Width="{TemplateBinding Width}"
-                        Height="{TemplateBinding Height}">
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock Text="{Binding Path=Caption}"></TextBlock>
-                            <TextBlock>:</TextBlock>
-                            <TextBlock Text="{Binding Path=Value}"></TextBlock>
-                        </StackPanel>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
 
 </ResourceDictionary>
