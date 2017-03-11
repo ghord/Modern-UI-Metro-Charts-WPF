@@ -727,6 +727,7 @@
                                             <local:FadingListView.ItemTemplate>
                                                 <DataTemplate>
                                                     <local:PiePiece
+                                                        Style="{Binding ParentChart.PiePieceStyle}"
                                                         ParentChart="{Binding Path=ParentChart}"
                                                         Background="{Binding Path=ItemBrush}"
                                                         SelectedBrush="{Binding Path=SelectedBrush}"  
@@ -818,7 +819,7 @@
                                                         Value="{Binding Path=Value}"
                                                         IsClickedByUser="{Binding Path=IsClickedByUser, Mode=TwoWay}"
                                                         IsSelected="{Binding Path=IsSelected}"
-                                                        Style="{Binding RadialPieceStyle, RelativeSource={RelativeSource FindAncestor, AncestorType=local:RadialGaugeChart}}"
+                                                        Style="{Binding ParentChart.RadialPieceStyle}"
                                                         x:Name="radial">
                                                      </local:RadialGaugePiece>
                                                     <Border Grid.Row="1" HorizontalAlignment="Center" Margin="0 0 0 0">
@@ -1106,7 +1107,7 @@
                         <!--<local:PiePieceLabel x:Name="PART_Label" Value="{Binding Path=Value, RelativeSource={RelativeSource Mode=TemplatedParent}}" />-->
                         <!--<TextBlock x:Name="PART_Label" Style="{StaticResource NumberStyle}" Margin="2" Text="{Binding Path=Value}" />-->
                         <Border x:Name="PART_Label">
-                            <TextBlock Style="{StaticResource NumberStyle}" Margin="2" Text="{Binding Path=Value}" />
+                            <TextBlock Style="{StaticResource NumberStyle}" Margin="2" Text="{TemplateBinding FormattedValue}" />
                         </Border>                        
                     </Canvas>
                 </ControlTemplate>

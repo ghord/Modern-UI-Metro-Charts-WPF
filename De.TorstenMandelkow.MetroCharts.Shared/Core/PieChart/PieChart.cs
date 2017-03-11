@@ -25,6 +25,17 @@
        
     public class PieChart : ChartBase
     {
+        public static readonly DependencyProperty PiePieceStyleProperty =
+          DependencyProperty.Register("PiePieceStyle", typeof(Style), typeof(PieChart), new PropertyMetadata(null));
+
+        public static readonly DependencyProperty PieMinimalSizeProperty =
+          DependencyProperty.Register("PieMinimalSize",
+          typeof(double), typeof(PieChart), new PropertyMetadata(250.0));
+
+        public static readonly DependencyProperty InnerRadiusRatioProperty =
+            DependencyProperty.Register("InnerRadiusRatio", typeof(double), typeof(PieChart),
+            new PropertyMetadata(0.0));
+
         #region Constructors
 
         /// <summary>
@@ -79,13 +90,6 @@
             set { SetValue(PieMinimalSizeProperty, value); }
         }
 
-        public static readonly DependencyProperty PieMinimalSizeProperty =
-          DependencyProperty.Register("PieMinimalSize",
-          typeof(double), typeof(PieChart), new PropertyMetadata(250.0));
-
-        public static readonly DependencyProperty InnerRadiusRatioProperty =
-            DependencyProperty.Register("InnerRadiusRatio", typeof(double), typeof(PieChart),
-            new PropertyMetadata(0.0));
 
         public double InnerRadiusRatio
         {
@@ -93,6 +97,16 @@
             set { SetValue(InnerRadiusRatioProperty, value); }
         }
 
-        
+
+
+
+        public Style PiePieceStyle
+        {
+            get { return (Style)GetValue(PiePieceStyleProperty); }
+            set { SetValue(PiePieceStyleProperty, value); }
+        }
+
+      
+
     }
 }

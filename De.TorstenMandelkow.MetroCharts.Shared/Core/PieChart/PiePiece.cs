@@ -26,7 +26,8 @@
     using System.Windows.Controls;
     using System.Windows.Media.Animation;
     using System.Windows.Shapes;
-    
+    using System.Runtime.CompilerServices;
+
 #endif
 
     public class PiePiece : PieceBase
@@ -51,7 +52,8 @@
         public static readonly DependencyProperty ValueProperty =
             DependencyProperty.Register("Value", typeof(double), typeof(PiePiece),
             new PropertyMetadata(0.0, new PropertyChangedCallback(UpdatePie)));
-        
+
+   
         public static readonly DependencyProperty StartValueProperty =
             DependencyProperty.Register("StartValue", typeof(double), typeof(PiePiece),
             new PropertyMetadata(0.0, new PropertyChangedCallback(UpdatePie)));
@@ -83,6 +85,15 @@
         public static readonly DependencyProperty LabelYPosProperty =
             DependencyProperty.Register("LabelYPos", typeof(double), typeof(PiePiece),
             new PropertyMetadata(10.0));
+
+        public static readonly DependencyProperty ValueFormatStringProperty =
+            DependencyProperty.Register("ValueFormatString", typeof(string), typeof(PiePiece), new PropertyMetadata(UpdatePie));
+
+        private static readonly DependencyPropertyKey FormattedValuePropertyKey =
+            DependencyProperty.RegisterReadOnly("FormattedValue", typeof(string), typeof(PiePiece), new FrameworkPropertyMetadata(string.Empty, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public static readonly DependencyProperty FormattedValueProperty = FormattedValuePropertyKey.DependencyProperty;
+
 
         #endregion Fields
 
@@ -194,6 +205,20 @@
             set { SetValue(ValueProperty, value); }
         }
 
+        public string FormattedValue
+        {
+            get { return (string)GetValue(FormattedValuePropertyKey.DependencyProperty); }
+            private set { SetValue(FormattedValuePropertyKey, value); }
+        }
+
+
+
+        public string ValueFormatString
+        {
+            get { return (string)GetValue(ValueFormatStringProperty); }
+            set { SetValue(ValueFormatStringProperty, value); }
+        }
+
         /// <summary>
         /// Gets or sets the percent.
         /// </summary>
@@ -228,6 +253,7 @@
 
         private static void UpdatePie(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+            d.SetValue(FormattedValuePropertyKey, ((double)d.GetValue(ValueProperty)).ToString(e.NewValue as string));
             (d as PiePiece).DrawGeometry();
         }
         
@@ -304,10 +330,6 @@
                     return;
                 }
                 if (endAngle > 360)
-                {
-                    return;
-                }
-                if ((startAngle == 0.0) && (endAngle == 0.0))
                 {
                     return;
                 }
@@ -425,15 +447,10 @@
                     }
                 };
                 SetValue(PiePiece.LineGeometryProperty, CloneDeep(linesegmentPath.Data as PathGeometry));
-                /*
-                label.Measure(new Size(420, 420));
-                double labelwidth = label.DesiredSize.Width;
-                double labelwidth = label.DesiredSize.Width;
-                
-                Size s = label.DesiredSize;
-                double x = this.Value;
-                */
+    
+                label.UpdateLayout();
                 label.SetValue(Canvas.TopProperty, pointerMoreOuter.Y - (label.ActualHeight / 2.0));
+            
                 if (pointerMoreOuter.X > center.X)
                 {
                     label.SetValue(Canvas.LeftProperty, pointerMoreOuter.X);
