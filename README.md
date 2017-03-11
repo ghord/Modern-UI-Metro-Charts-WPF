@@ -5,6 +5,7 @@ Fork of Modern UI (Metro) Charts WPF https://modernuicharts.codeplex.com/ with v
 Bug fixes:
 - You can now set 0 as starting percentage in `RadialGaugeChart`
 - You can now safely set percentages to fractional values in `RadialGaugeChart`
+- Fixed layout positioning of `PiePiece` labels
 
 
 Enhancements
@@ -21,6 +22,17 @@ Enhancements
     </Style>
   </charts:RadialGaugeChart.RadialPieceStyle>
 <charts:RadialGaugeChart>
+```
+- Added `PiePieceStyle` to `PieChart` along with additional `ValueFormatString` properties on `PiePiece` to make it's labels more customizable. Sample usage:
+
+```xaml
+<charts:PieChart>
+  <charts:RadialGaugeChart.PiePieceStyle>
+    <Style TargetType="charts:PiePiece" BasedOn="{StaticResource {x:Type charts:PiePiece}}">
+      <Setter Property="ValueFormatString" Value="n2" />
+    </Style>
+  </charts:PieChart.PiePieceStyle>
+<charts:PieChart>
 ```
 
 - You can now customize `ItemsPanelTemplate` on `RadialGaugeChart`. Sample usage:
